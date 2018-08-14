@@ -29,4 +29,20 @@ public class Card extends AbstractEntity {
 	@OneToMany(mappedBy = "card")
 	@OrderBy("id DESC")
 	private List<Todo> todoList;
+	
+	@JsonProperty
+	private Integer countOfTodo = 0;
+
+	public Card() {	}
+
+	public Card(User writer, List<Todo> todoList) {
+		this.writer = writer;
+		this.todoList = todoList;
+		this.countOfTodo = todoList.size();
+	}
+	
+	public void update(List<Todo> todoList) {
+		this.todoList = todoList;
+		this.countOfTodo = todoList.size();
+	}
 }

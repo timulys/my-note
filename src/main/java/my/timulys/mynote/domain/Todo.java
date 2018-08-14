@@ -24,9 +24,27 @@ public class Todo extends AbstractEntity {
 	@JsonProperty
 	private String contents;
 
-	public Todo() {
-		super();
+	public Todo() { }
+
+	public Todo(Card card, String contents) {
+		this.card = card;
+		this.contents = contents;
 	}
-	
+
+	public Card getCard() {
+		return card;
+	}
+
+	public void setCard(Card card) {
+		this.card = card;
+	}
+
+	public String getContents() {
+		return contents;
+	}
+
+	public void setContents(String contents) {
+		this.contents = contents;
+	}
 	
 }
