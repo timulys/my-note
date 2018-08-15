@@ -2,6 +2,8 @@ package my.timulys.mynote.domain;
 
 import javax.persistence.Entity;
 import javax.persistence.ForeignKey;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
@@ -16,6 +18,10 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 @Entity
 public class Todo extends AbstractEntity {
+	@Id
+	@GeneratedValue
+	private Long id;
+	
 	@ManyToOne
 	@JoinColumn(foreignKey = @ForeignKey(name = "fk_todo_card"))
 	private Card card;
